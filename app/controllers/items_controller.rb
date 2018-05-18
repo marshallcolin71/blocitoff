@@ -1,0 +1,26 @@
+class ItemsController < ApplicationController
+
+  def create
+    @item = Item.new(item_params)
+    @item.user = current_user
+    @new_item = Item.new
+
+    if @item.save
+      flash[:notice] = "To-Do list has been successfully updated"
+    else
+      flash.now[:alert] = "Sorry, there was an error updating. Please try again"
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name)
+  end
+
+end
