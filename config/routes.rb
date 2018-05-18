@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'home/index'
 
-  resources :items, only: [:create]
+  resources :items, only: [:create, :destroy]
 
 end
