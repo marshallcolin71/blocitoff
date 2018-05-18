@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :models
   devise_for :users
-  
+
   root 'home#index'
 
-  get 'todo/show'
+  get 'users/show'
   get 'home/index'
-
-
 
 end
