@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
 
   def create
-    @user = User.find(params[:user_id])
     @item = Item.new(item_params)
     @item.user = current_user
     @new_item = Item.new
